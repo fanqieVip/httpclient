@@ -1,5 +1,5 @@
 # Httpclient for Android 安卓网络中心组件
-## 支持常用的GET/POST/UPLOAD/DOWNLOAD，默认支持断点续传\断点下载，可自由定义Headers、Params，可自由定义FORM、JSON提交方式，支持Request及Response拦截
+## 支持常用的GET/POST/UPLOAD/DOWNLOAD，支持http/https,默认支持断点续传\断点下载，可自由定义Headers、Params，可自由定义FORM、JSON提交方式，支持Request及Response拦截
 ### 使用方式
 ```Java
         //初始化网络中心
