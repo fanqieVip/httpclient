@@ -112,5 +112,5 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 ```
 #### Gradle
 ```Xml
-compile 'com.fanjun:httpclient:1.0.0'
+implementation 'com.fanjun:httpclient:1.0.0'
 ```
