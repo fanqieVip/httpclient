@@ -9,7 +9,7 @@
                         .charset("你的编码格式")
                         .connectTimeout(20 * 1000)
                         .downloadPath("您的文件下载目录")
-                        //你的代理地址和端口
+                        //如需要代理
                         .proxyHost("").proxyPort(0)
                         //你的线程池大小
                         .threadPool(10)
