@@ -1,6 +1,8 @@
 # Httpclient for Android 安卓网络中心组件
 ## 支持常用的GET/POST/UPLOAD/DOWNLOAD，支持http/https,默认支持断点续传\断点下载，可自由定义Headers、Params，可自由定义FORM、JSON提交方式，支持Request及Response拦截
 ## 更新日志
+### 【1.0.5】 2018-11-16 
+1.修复Request.ini(class)中class对requestListener反省约束无效的问题
 ### 【1.0.4】 2018-10-25 
 1.修复了中文路径无法下载的bug
 ### 使用方式
