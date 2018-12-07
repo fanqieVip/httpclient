@@ -1,9 +1,13 @@
 # Httpclient for Android 安卓网络中心组件
 ## 支持常用的GET/POST/UPLOAD/DOWNLOAD，支持http/https,默认支持断点续传\断点下载，可自由定义Headers、Params，可自由定义FORM、JSON提交方式，支持Request及Response拦截
 ## 更新日志
-### 【1.0.14】 2018-12-07 
+### 【1.0.15】 2018-12-07 
 #### 1.修复部分文件无法下载的bug
 #### 2.修复部分手机重连机制失效的bug
+#### 3.标记Request.ini(Class cls)方法过时，新增Request.ini(Object context, Class cls)方法，用以标记Request来源，便于批量关闭请求
+#### 4.新增request.stop()方法，便于关闭单个请求
+#### 5.新增HttpCenter.stopRequests(Object context)方法，调用该方法将批量关闭与该context关联的所有Request请求
+#### 6.新增HttpCenter.shutDown()方法，调用该方法彻底关闭所有网络请求及停止HttpCenter，如需重启则需要重新调用HttpCenter.create()，！！！慎用
 ### 【1.0.8】 2018-12-06 
 #### 1.Request新增是否启用自动重连特性（网络不通时，不会重连，会等到通了之后自动重连）
 #### 2.Request默认关闭自动重连机制，可通过单独设置request.enableReconnection(true)启用
@@ -121,11 +125,11 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 <dependency>
   <groupId>com.fanjun</groupId>
   <artifactId>httpclient</artifactId>
-  <version>1.0.14</version>
+  <version>1.0.15</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.0.14'
+implementation 'com.fanjun:httpclient:1.0.15'
 ```
