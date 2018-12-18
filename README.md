@@ -4,6 +4,8 @@
 ## 支持自动过滤重复请求
 ## 支持批量关闭请求或关闭单个请求
 ## 更新日志
+### 【1.1.0稳定版】 2018-12-18 
+#### 1.新增Response拦截器开关功能，可对单个Request进行设置（Request.enableResponseDispatcherParams），默认为开启
 ### 【1.0.19】 2018-12-17 
 #### 1.新增自动过滤重复请求特性，如相同的请求已存放于等待请求队列，正在进行请求队列，重连请求队列中时，则自动过滤。有效规避暴力请求操作、有效规避多次onResume造成网络浪费的等问题，有效优化网络负载性能
 ### 【1.0.15】 2018-12-07 
@@ -130,11 +132,11 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 <dependency>
   <groupId>com.fanjun</groupId>
   <artifactId>httpclient</artifactId>
-  <version>1.0.19</version>
+  <version>1.1.0</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.0.19'
+implementation 'com.fanjun:httpclient:1.1.0'
 ```
