@@ -6,7 +6,7 @@
 ## 支持自动缓存、自定义缓存及Request单独禁用缓存
 ## 更新日志
 ### 【1.1.2】 2018-12-25 
-#### 1.新增自动缓存特性。可通过Config.ini().useDiskCache(DiskCache.init())启用缓存，默认使用Http协议进行缓存。
+#### 1.新增自动缓存特性（默认关闭）。可通过Config.ini().useDiskCache(DiskCache.init())启用缓存，默认使用Http协议进行缓存。
 #### 2.支持自定义缓存。可通过Config.ini().useDiskCache(DiskCache.init().diskCacheProcessor(DiskCacheProcessor...))，通过实现DiskCacheProcessor协议即可按照个性需求进行定制
 #### 3.支持针对Request单独禁用缓存。可通过request.forbidDiskCache()禁用缓存
 ### 【1.1.1】 2018-12-21 
