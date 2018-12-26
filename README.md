@@ -5,6 +5,8 @@
 ## 支持批量关闭请求或关闭单个请求
 ## 支持自动缓存、自定义缓存及Request单独禁用缓存
 ## 更新日志
+### 【1.1.3】 2018-12-26 
+#### 1.修改Request及Response拦截器从多个变更为一个。多个拦截器有些鸡肋，省点内存有什么不好。
 ### 【1.1.2】 2018-12-25 
 #### 1.新增自动缓存特性（默认关闭）。可通过Config.ini().useDiskCache(DiskCache.init())启用缓存，默认使用Http协议进行缓存。
 #### 2.支持自定义缓存。可通过Config.ini().useDiskCache(DiskCache.init().diskCacheProcessor(DiskCacheProcessor...))，通过实现DiskCacheProcessor协议即可按照个性需求进行定制
@@ -47,9 +49,9 @@
                         //你的线程池大小
                         .threadPool(10)
                         //在请求发出前的拦截器,一般可以在这里集中处理加密、验签，或针对不同请求方式做特殊处理；可添加多个
-                        .addRequestInterceptor(new MyRequestInterceptor())
+                        .requestInterceptor(new MyRequestInterceptor())
                         //在服务器返回后的拦截器,一般可以在这里集中处理解密、数据拆装，或针对不同请求方式做特殊处理；可添加多个
-                        .addResponseInterceptor(new MyResponseInterceptor()));
+                        .responseInterceptor(new MyResponseInterceptor()));
 
         //POST 请求 注意：用到泛型的地方均为Response的子类，Request.ini(Response.class)中的class必须和泛型一个类，下面不再赘述
         HttpCenter.POST(Request.ini(Response.class)
@@ -139,11 +141,11 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 <dependency>
   <groupId>com.fanjun</groupId>
   <artifactId>httpclient</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.3</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.1.2'
+implementation 'com.fanjun:httpclient:1.1.3'
 ```
