@@ -5,6 +5,8 @@
 ## 支持批量关闭请求或关闭单个请求
 ## 支持自动缓存、自定义缓存及Request单独禁用缓存
 ## 更新日志
+### 【1.1.5】 2019-01-02 
+#### 1.修复默认缓存策略中，地址不变参数变化后错误使用缓存的bug。
 ### 【1.1.4】 2018-12-27 
 #### 1.新增HttpCenter.clearCache()方法，便于进行缓存版本管理。如：切换账号场景需要将历史用户缓存数据清空。
 #### 2.自定义的DiskCacheProcessor缓存处理器新增clearCache实现，便于对自定义的缓存进行自主管理。
@@ -144,11 +146,11 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 <dependency>
   <groupId>com.fanjun</groupId>
   <artifactId>httpclient</artifactId>
-  <version>1.1.4</version>
+  <version>1.1.5</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.1.4'
+implementation 'com.fanjun:httpclient:1.1.5'
 ```
