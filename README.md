@@ -5,8 +5,8 @@
 ## 支持批量关闭请求或关闭单个请求
 ## 支持自动缓存、自定义缓存及Request单独禁用缓存
 ## 更新日志
-### 【1.1.6】 2019-01-07 
-#### 1.优化了批量关闭Request策略。
+### 【1.1.12】 2019-01-07 
+#### 1.新增自动识别Activity，Fragment，Dialog，Popuwindow销毁情况特性，当检测到上述窗口销毁或关闭将默认不再回调，自动规避空指针问题！
 ### 【1.1.5】 2019-01-02 
 #### 1.修复默认缓存策略中，地址不变参数变化后错误使用缓存的bug。
 ### 【1.1.4】 2018-12-27 
@@ -148,11 +148,11 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 <dependency>
   <groupId>com.fanjun</groupId>
   <artifactId>httpclient</artifactId>
-  <version>1.1.6</version>
+  <version>1.1.12</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.1.6'
+implementation 'com.fanjun:httpclient:1.1.12'
 ```
