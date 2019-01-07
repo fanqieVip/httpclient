@@ -4,6 +4,7 @@
 ## 支持自动过滤重复请求
 ## 支持批量关闭请求或关闭单个请求
 ## 支持自动缓存、自定义缓存及Request单独禁用缓存
+## 自动识别Activity，Fragment，Dialog，Popuwindow，自动规避回调空指针问题
 ## 更新日志
 ### 【1.1.12】 2019-01-07 
 #### 1.新增自动识别Activity，Fragment，Dialog，Popuwindow销毁情况特性，当检测到上述窗口销毁或关闭将默认不再回调，自动规避空指针问题！
