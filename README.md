@@ -155,7 +155,7 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.1.13'
+implementation 'com.fanjun:httpclient:1.1.14'
 ```
 #### 联系我
 ```Xml
