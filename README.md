@@ -56,9 +56,9 @@
                         .proxyHost("").proxyPort(0)
                         //你的线程池大小
                         .threadPool(10)
-                        //在请求发出前的拦截器,一般可以在这里集中处理加密、验签，或针对不同请求方式做特殊处理；可添加多个
+                        //在请求发出前的拦截器,一般可以在这里集中处理加密、验签，或针对不同请求方式做特殊处理；
                         .requestInterceptor(new MyRequestInterceptor())
-                        //在服务器返回后的拦截器,一般可以在这里集中处理解密、数据拆装，或针对不同请求方式做特殊处理；可添加多个
+                        //在服务器返回后的拦截器,一般可以在这里集中处理解密、数据拆装，或针对不同请求方式做特殊处理；
                         .responseInterceptor(new MyResponseInterceptor()));
 
         //POST 请求 注意：用到泛型的地方均为Response的子类，Request.ini(Response.class)中的class必须和泛型一个类，下面不再赘述
