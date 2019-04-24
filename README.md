@@ -6,6 +6,8 @@
 ## 支持自动缓存、自定义缓存及Request单独禁用缓存
 ## 自动识别Activity，Fragment，Dialog，Popuwindow，自动规避回调空指针问题
 ## 更新日志
+### 【1.2.1】 2019-04-24
+#### 1.修改了HttpCenter的下载文件功能，将下载地址的配置又原来的Config换到了Request中设置！
 ### 【1.1.13】 2019-01-07 
 #### 1.新增自动识别Activity，Fragment，Dialog，Popuwindow销毁情况特性，当检测到上述窗口销毁或关闭将默认不再回调，自动规避空指针问题！
 ### 【1.1.5】 2019-01-02 
@@ -51,7 +53,6 @@
                 context, Config.ini()
                         .charset("你的编码格式")
                         .connectTimeout(20 * 1000)
-                        .downloadPath("您的文件下载目录")
                         //如需要代理
                         .proxyHost("").proxyPort(0)
                         //你的线程池大小
@@ -105,6 +106,7 @@
         //下载文件请求，默认为支持断点下载
         HttpCenter.DownloadFile(Request.ini(Response.class)
                 .url("您restApi地址")
+                .downloadPath("您的文件下载目录")
                 //可以任意设置请求头
                 .putHeader("", "")
                 //您的请求参数
@@ -149,13 +151,13 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 <dependency>
   <groupId>com.fanjun</groupId>
   <artifactId>httpclient</artifactId>
-  <version>1.1.13</version>
+  <version>1.2.1</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.1.14'
+implementation 'com.fanjun:httpclient:1.2.1'
 ```
 #### 联系我
 ```Xml
