@@ -6,8 +6,9 @@
 ## 支持自动缓存、自定义缓存及Request单独禁用缓存
 ## 自动识别Activity，Fragment，Dialog，Popuwindow，自动规避回调空指针问题
 ## 更新日志
-### 【1.2.6】 2020-06-28
+### 【1.2.7】 2020-06-28
 #### 1.修复文件服务器非正常返回200码造成无法下载的问题
+#### 2.修复下载进度与下载请求成功多线程并发的问题，Response中新增getDownloadFile()方法获取下载的文件
 ### 【1.2.1】 2019-04-24
 #### 1.修改了HttpCenter的下载文件功能，将下载地址的配置又原来的Config换到了Request中设置！
 ### 【1.1.13】 2019-01-07 
@@ -153,13 +154,13 @@ public class MyResponseInterceptor implements ResponseInterceptor {
 <dependency>
   <groupId>com.fanjun</groupId>
   <artifactId>httpclient</artifactId>
-  <version>1.2.6</version>
+  <version>1.2.7</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```Xml
-implementation 'com.fanjun:httpclient:1.2.6'
+implementation 'com.fanjun:httpclient:1.2.7'
 ```
 #### 联系我
 ```Xml
