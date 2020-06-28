@@ -1,5 +1,6 @@
 package com.fanjun.httpclient.httpcenter;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,10 @@ public class Response {
 	 * 错误消息
 	 */
 	private String errorMsg;
+	/**
+	 * 下载的文件
+	 */
+	private File downloadFile;
 
 	public String getErrorMsg() {
 		return errorMsg;
@@ -46,5 +51,13 @@ public class Response {
 	}
 	public void setHeaders(Map<String, List<String>> headers) {
 		this.headers = headers;
+	}
+
+	public File getDownloadFile() {
+		return downloadFile;
+	}
+
+	public void setDownloadFile(File downloadFile) {
+		this.downloadFile = downloadFile;
 	}
 }
