@@ -245,29 +245,34 @@ public class HttpClient {
             response.setCode(con.getResponseCode());
             response.setHeaders(con.getHeaderFields());
             if (response.getCode() == 206 || response.getCode() == 200) {
-                final long serverSize = con.getContentLength() + size;
-                in = con.getInputStream();
-                //必须要使用
-                out = new RandomAccessFile(file, "rw");
-                out.seek(size);
-                byte[] b = new byte[1024];
-                int len = -1;
-                while ((len = in.read(b)) != -1) {
-                    if ( !request.isStop()){
-                        out.write(b, 0, len);
-                        size += len;
-                        connectionListener.download(request, size, serverSize, file);
-                        if (size >= serverSize) {
-                            response.setCode(200);
+                long contentLength = con.getContentLength();
+                if ( response.getCode() == 200 && size == contentLength && size != 0){
+                    //表示文件已经下载完了
+                    connectionListener.download(request, size, size, file);
+                }else{
+                    final long serverSize = contentLength + size;
+                    in = con.getInputStream();
+                    //必须要使用
+                    out = new RandomAccessFile(file, "rw");
+                    out.seek(size);
+                    byte[] b = new byte[1024];
+                    int len = -1;
+                    while ((len = in.read(b)) != -1) {
+                        if ( !request.isStop()){
+                            out.write(b, 0, len);
+                            size += len;
+                            connectionListener.download(request, size, serverSize, file);
+                            if (size >= serverSize) {
+                                response.setCode(200);
+                                break;
+                            }
+                        }else{
+                            response.setCode(InteraptException);
+                            response.setErrorMsg("user has interapted download...");
                             break;
                         }
-                    }else{
-                        response.setCode(InteraptException);
-                        response.setErrorMsg("user has interapted download...");
-                        break;
                     }
                 }
-
             } else if (response.getCode() == 416) {
                 response.setCode(200);
                 connectionListener.download(request, size, size, file);
