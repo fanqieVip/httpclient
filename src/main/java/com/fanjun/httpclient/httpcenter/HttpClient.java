@@ -210,7 +210,7 @@ public class HttpClient {
 
             response.setCode(con.getResponseCode());
             response.setHeaders(con.getHeaderFields());
-            if (response.getCode() == 206) {
+            if (response.getCode() == 206 || response.getCode() == 200) {
                 final long serverSize = con.getContentLength() + size;
                 in = con.getInputStream();
                 //必须要使用
@@ -238,7 +238,7 @@ public class HttpClient {
                         break;
                     }
                 }
-            } else if (response.getCode() == 416 || response.getCode() == 200) {
+            } else if (response.getCode() == 416) {
                 if (request.getRequestListener() != null) {
                     final long size2 = size;
                     handler.postAtFrontOfQueue(new Runnable() {
