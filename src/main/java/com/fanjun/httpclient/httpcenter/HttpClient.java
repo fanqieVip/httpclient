@@ -222,9 +222,10 @@ public class HttpClient {
         if (!dic.exists()) {
             dic.mkdirs();
         }
+        File file = null;
         try {
             response = (T) request.getResponseCls().newInstance();
-            final File file = new File(request.downloadPath(), MD5Util.getMD5(request.getUrl()) + request.getUrl().substring(request.getUrl().lastIndexOf(".")));
+            file = new File(request.downloadPath(), MD5Util.getMD5(request.getUrl()) + request.getUrl().substring(request.getUrl().lastIndexOf(".")));
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -295,6 +296,9 @@ public class HttpClient {
         }
         if (con != null) {
             con.disconnect();
+        }
+        if (response.getCode() == 200){
+            response.setDownloadFile(file);
         }
         connectionListener.finish(exception, request, response);
     }
