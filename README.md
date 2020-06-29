@@ -118,7 +118,7 @@
                 .requestListener(new RequestListener<Response>() {
                     @Override
                     public void response(Response response) {
-
+                        //如返回200，可通过getDownloadFile获取下载的文件
                     }
                     //可跟踪下载进度
                     @Override
